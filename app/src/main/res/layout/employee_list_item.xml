@@ -1,21 +1,24 @@
 <!-- employee_list_item.xml
 Making a card checkable-->
-<com.google.android.material.card.MaterialCardView
-    android:id="@+id/cardClickable"
+<com.google.android.material.card.MaterialCardView android:id="@+id/cardClickable"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="18dp"
     android:clickable="true"
     android:focusable="true"
     android:checkable="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00BCD4"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

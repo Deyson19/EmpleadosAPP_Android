@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Aquí inicia la siguiente actividad (por ejemplo, EmployeeListActivity)
-                Intent intent = new Intent(SplashActivity.this, EmployeeListActivity.class);
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

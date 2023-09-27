@@ -12,6 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -23,6 +32,8 @@ public class EmployeeListActivity extends AppCompatActivity {
 
     private EmployeeListAdapter adapter;
     private Button crearNuevos;
+
+    private  AdView mAdView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,8 +51,10 @@ public class EmployeeListActivity extends AppCompatActivity {
             }
         });
 
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view_employee_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
 
         EmployeeService employeeService = new EmployeeService();
@@ -73,6 +86,19 @@ public class EmployeeListActivity extends AppCompatActivity {
 
             }
         });
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
     }
 
 
