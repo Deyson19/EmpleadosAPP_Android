@@ -1,7 +1,6 @@
 package com.deysondev.empleadosapp;
 
 
-import android.util.JsonWriter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,11 +21,11 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import com.google.gson.Gson;
 public class EmployeeApi {
-    private static final String API_URL = "https://tu-api.com/";
-    private OkHttpClient client = new OkHttpClient();
-    private Gson gson = new Gson();
+    private static final String API_URL = "https://apiempleados20.bsite.net/api/Empleados";
+    private final OkHttpClient client = new OkHttpClient();
+    private final Gson gson = new Gson();
     public List<Employee> getAllEmployees() throws IOException {
-        URL url = new URL(API_URL);
+        URL url = new URL(API_URL + "/ListadoEmpleados");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 
@@ -39,7 +38,6 @@ public class EmployeeApi {
             }
             reader.close();
 
-            // Parsear la respuesta JSON y devolver una lista de empleados
             return parseJsonResponse(response.toString());
         } else {
             throw new IOException("Error en la solicitud HTTP: " + connection.getResponseCode());
@@ -47,7 +45,7 @@ public class EmployeeApi {
     }
 
     public static Employee getEmployeeById(int employeeId) throws IOException {
-        URL url = new URL(API_URL + "/empleados/" + employeeId);
+        URL url = new URL(API_URL + "/ObtenerEmpleado/" + employeeId);
         // Realiza una solicitud GET y procesa la respuesta para obtener un solo empleado.
         OkHttpClient client = new OkHttpClient();
 
@@ -59,28 +57,30 @@ public class EmployeeApi {
 
         if (response.isSuccessful()){
             String responseBody = response.body().string();
-            Employee employee = parseEmployeeFromJson(responseBody);
-            return  employee;
+            return  parseEmployeeFromJson(responseBody);
         }
         return null;
     }
     private static Employee parseEmployeeFromJson(String json){
         try{
             JSONObject jsonObject = new JSONObject(json);
-            String name, profesion,empresa;
-            int id = jsonObject.getInt("id");
-            name = jsonObject.getString("nombre");
+            String nombre, apellido,empresa,profesion,sueldo;
+            int edad, id;
+            id = jsonObject.getInt("id");
+            edad = jsonObject.getInt("edad");
+            nombre = jsonObject.getString("nombre");
+            apellido = jsonObject.getString("apellido");
+            sueldo = jsonObject.getString("sueldo");
             profesion = jsonObject.getString("profesion");
             empresa = jsonObject.getString("empresa");
 
-            return  new Employee(id,name,profesion,empresa);
+            return  new Employee(id,edad,nombre,apellido,profesion,sueldo,empresa);
         }catch (JSONException e){
             e.printStackTrace();
             return null;
         }
     }
     public void createEmployee(Employee employee) throws IOException {
-        URL url = new URL(API_URL + "/empleados");
         // Configura una solicitud POST con los datos del nuevo empleado en el cuerpo de la solicitud y envíala.
 
         try {
@@ -160,13 +160,17 @@ public class EmployeeApi {
 
             for (int i = 0; i<jsonArray.length();i++){
                 JSONObject jsonObject = new JSONObject(jsonResponse);
-                String name, profesion,empresa;
-                int id = jsonObject.getInt("id");
-                name = jsonObject.getString("nombre");
+                String nombre, apellido,empresa,profesion,sueldo;
+                int edad, id;
+                id = jsonObject.getInt("id");
+                edad = jsonObject.getInt("edad");
+                nombre = jsonObject.getString("nombre");
+                apellido = jsonObject.getString("apellido");
+                sueldo = jsonObject.getString("sueldo");
                 profesion = jsonObject.getString("profesion");
                 empresa = jsonObject.getString("empresa");
 
-                Employee employee = new Employee(id,name,profesion,empresa);
+                Employee employee =  new Employee(id,edad,nombre,apellido,profesion,sueldo,empresa);
                 employeeList.add(employee);
             }
         }catch (JSONException e){

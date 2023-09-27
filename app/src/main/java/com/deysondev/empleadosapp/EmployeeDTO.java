@@ -1,8 +1,6 @@
 package com.deysondev.empleadosapp;
-import java.io.Serializable;
 
-public class Employee implements Serializable {
-    private int id;
+public class EmployeeDTO {
     private int edad;
     private String nombre;
     private String apellido;
@@ -10,22 +8,13 @@ public class Employee implements Serializable {
     private String sueldo;
     private String empresa;
 
-    public Employee(int id, int edad, String nombre, String apellido, String profesion, String sueldo, String empresa) {
-        this.id = id;
+    public EmployeeDTO(int edad, String nombre, String apellido, String profesion, String sueldo, String empresa) {
         this.edad = edad;
         this.nombre = nombre;
         this.apellido = apellido;
         this.profesion = profesion;
         this.sueldo = sueldo;
         this.empresa = empresa;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getEdad() {

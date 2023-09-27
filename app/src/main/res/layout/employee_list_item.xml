@@ -1,20 +1,88 @@
-<!-- employee_list_item.xml -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- employee_list_item.xml
+Making a card checkable-->
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/cardClickable"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_margin="18dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:checkable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/text_view_employee_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre del empleado" />
+        android:background="#7CF381"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_view_employee_position"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Posición del empleado" />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:id="@+id/nombreEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_empleado"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                />
+            <TextView
+                android:id="@+id/apellidoEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/apellido_empleado"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+
+                />
+            <TextView
+                android:id="@+id/edadEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/edad_empleado"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/profesion_empleado"
+                android:id="@+id/profesionEmpleado"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+
+                />
+            <TextView
+                android:id="@+id/empresaEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/empresa_empleado"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+
+                />
+            <TextView
+                android:id="@+id/sueldoEmpleado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/sueldo_empleado"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

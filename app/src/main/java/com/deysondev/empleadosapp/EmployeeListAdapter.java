@@ -40,18 +40,27 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeListAdapte
     }
 
     static class EmployeeViewHolder extends RecyclerView.ViewHolder {
-        private TextView textViewName;
-        private TextView textViewPosition;
+        private TextView txtNombre,txtApellido,txtEdad,txtSueldo,txtProfesion,txtEmpresa;
+
 
         public EmployeeViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewName = itemView.findViewById(R.id.text_view_employee_name);
-            textViewPosition = itemView.findViewById(R.id.text_view_employee_position);
+            txtApellido = itemView.findViewById(R.id.apellidoEmpleado);
+            txtNombre = itemView.findViewById(R.id.nombreEmpleado);
+            txtEdad = itemView.findViewById(R.id.edadEmpleado);
+            txtSueldo = itemView.findViewById(R.id.sueldoEmpleado);
+            txtEmpresa = itemView.findViewById(R.id.empresaEmpleado);
+            txtProfesion = itemView.findViewById(R.id.profesionEmpleado);
         }
 
         public void bind(final Employee employee, final OnItemClickListener listener) {
-            textViewName.setText(employee.getName());
-            textViewPosition.setText(employee.getProfession());
+            // Muestra los detalles del empleado en la vista.
+            txtProfesion.setText("Profesión: "+employee.getProfesion());
+            txtApellido.setText("Apellido: "+employee.getApellido());
+            txtEmpresa.setText("Empresa: "+employee.getEmpresa());
+            txtNombre.setText("Nombre: "+employee.getNombre());
+            txtSueldo.setText("Sueldo: "+employee.getSueldo());
+            txtEdad.setText(String.valueOf("Edad: "+employee.getEdad()));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
