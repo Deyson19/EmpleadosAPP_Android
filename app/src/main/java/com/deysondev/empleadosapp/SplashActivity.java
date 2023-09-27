@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 3000); // 3000 milisegundos (3 segundos) de retraso
+        }, 4000); // 4000 milisegundos (3 segundos) de retraso
     }
 }
 

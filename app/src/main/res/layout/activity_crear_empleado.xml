@@ -1,12 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="#31CADD"
     tools:context=".CrearEmpleado">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/employee"
+        android:scaleType="fitCenter"
+        android:contentDescription="Imagen Empleado"
+        />
+
+            <EditText
+                android:id="@+id/edtText_nombreEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Nombre Empleado"/>
+
+            <EditText
+                android:id="@+id/edtText_apellidoEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="text"
+                android:hint="Apellido Empleado"/>
+            <EditText
+                android:id="@+id/edtText_ProfesionEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="text"
+                android:hint="Profesión Empleado"/>
+            <EditText
+                android:id="@+id/edtText_empresaEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="text"
+                android:hint="Empresa Empleado"/>
+
+            <EditText
+                android:id="@+id/edtText_edadEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="number"
+                android:hint="Edad Empleado"/>
+            <EditText
+                android:id="@+id/edtText_sueldoEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="text"
+                android:hint="Sueldo Empleado"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="fill_vertical"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGuardar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textColor="@color/black"
+                    android:shadowColor="@color/colorPrimary"
+                    android:backgroundTint="#F3BC19"
+                    android:text="Guardar Datos" />
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            </LinearLayout>
+        </LinearLayout>

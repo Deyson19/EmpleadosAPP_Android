@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +22,23 @@ import retrofit2.Response;
 public class EmployeeListActivity extends AppCompatActivity {
 
     private EmployeeListAdapter adapter;
+    private Button crearNuevos;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_list);
+
+        crearNuevos = findViewById(R.id.Crear);
+        crearNuevos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(EmployeeListActivity.this,CrearEmpleado.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view_employee_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

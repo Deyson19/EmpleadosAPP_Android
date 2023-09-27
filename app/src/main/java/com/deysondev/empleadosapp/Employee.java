@@ -10,6 +10,9 @@ public class Employee implements Serializable {
     private String sueldo;
     private String empresa;
 
+    public Employee() {
+    }
+
     public Employee(int id, int edad, String nombre, String apellido, String profesion, String sueldo, String empresa) {
         this.id = id;
         this.edad = edad;
