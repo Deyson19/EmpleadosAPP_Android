@@ -20,6 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.deysondev.empleadosapp.databinding.ActivityCrearEmpleadoBinding;
 
+import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,8 +28,9 @@ import retrofit2.Response;
 public class CrearEmpleado extends AppCompatActivity {
 
     Button enviarDatos;
-    EditText nombre,apellido,edad,profesion,empresa,sueldo;
-    String _nombre,_apellido,_edad,_profesion,_empresa,_sueldo;
+    EditText nombre, apellido, edad, profesion, empresa, sueldo;
+    String _nombre, _apellido, _edad, _profesion, _empresa, _sueldo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,13 +52,50 @@ public class CrearEmpleado extends AppCompatActivity {
         enviarDatos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Validar los campos de entrada de texto
+                boolean hayError = false;
+
+                if (nombre.getText().toString().isEmpty()) {
+                    hayError = true;
+                    Toasty.error(CrearEmpleado.this, "El campo nombre está vacío", Toast.LENGTH_SHORT,true).show();
+                }
+
+                if (apellido.getText().toString().isEmpty()) {
+                    hayError = true;
+                    Toasty.error(CrearEmpleado.this, "El campo apellido está vacío", Toast.LENGTH_SHORT).show();
+                }
+
+                if (edad.getText().toString().isEmpty()) {
+                    hayError = true;
+                    Toasty.error(CrearEmpleado.this, "El campo edad está vacío", Toast.LENGTH_SHORT).show();
+                }
+
+                if (profesion.getText().toString().isEmpty()) {
+                    hayError = true;
+                    Toasty.error(CrearEmpleado.this, "El campo profesión está vacío", Toast.LENGTH_SHORT).show();
+                }
+
+                if (empresa.getText().toString().isEmpty()) {
+                    hayError = true;
+                    Toasty.error(CrearEmpleado.this, "El campo empresa está vacío", Toast.LENGTH_SHORT,true).show();
+                }
+
+                if (sueldo.getText().toString().isEmpty()) {
+                    hayError = true;
+                    Toasty.error(CrearEmpleado.this, "El campo sueldo está vacío", Toast.LENGTH_SHORT,true).show();
+                }
+
+                // Si hay un error, no se envía el formulario
+                if (hayError) {
+                    return;
+                }
                 _sueldo = sueldo.getText().toString();
                 _nombre = nombre.getText().toString();
                 _apellido = apellido.getText().toString();
                 _edad = edad.getText().toString();
                 _profesion = profesion.getText().toString();
                 _empresa = empresa.getText().toString();
-
 
                 Employee guardarEmpleado = new Employee();
 
@@ -71,12 +110,14 @@ public class CrearEmpleado extends AppCompatActivity {
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        if (response.isSuccessful()){
-                            Toast.makeText(CrearEmpleado.this,"Se ha guardado el registro: \n"+_nombre +" "+ _apellido,Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(CrearEmpleado.this,EmployeeListActivity.class);
+                        if (response.isSuccessful()) {
+                            Toasty.success(CrearEmpleado.this, "Datos guardatos correctamente!", Toast.LENGTH_SHORT, true).show();
+                            Toast.makeText(CrearEmpleado.this, "Se ha guardado el registro: \n" + _nombre + " " + _apellido, Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(CrearEmpleado.this, EmployeeListActivity.class);
                             startActivity(i);
                             finish();
-                        }else{
+                        } else {
+                            Toasty.error(CrearEmpleado.this, "No se pudo realizar esta acción.", Toast.LENGTH_LONG, true).show();
                             Toast.makeText(CrearEmpleado.this, "No se pudo crear el registro", Toast.LENGTH_LONG).show();
                         }
 
@@ -87,6 +128,7 @@ public class CrearEmpleado extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
+
             }
         });
     }

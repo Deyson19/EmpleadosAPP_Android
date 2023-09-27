@@ -13,7 +13,7 @@ Making a card checkable-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#7CF381"
+        android:background="#00BCD4"
         android:orientation="vertical">
 
         <LinearLayout

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,11 +62,13 @@ public class EmployeeDetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()){
+                    Toasty.warning(EmployeeDetailActivity.this, "Se ha eliminado un registro.", Toast.LENGTH_SHORT, true).show();
                     Toast.makeText(EmployeeDetailActivity.this,"El empleado ha sido eliminado",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(EmployeeDetailActivity.this,EmployeeListActivity.class);
                     startActivity(intent);
                 }else {
                     int statusCode = response.code();
+                    Toasty.error(EmployeeDetailActivity.this, "No se pudo realizar la acción.", Toast.LENGTH_SHORT, true).show();
                     Toast.makeText(EmployeeDetailActivity.this,"No fue posible eliminar el registro",Toast.LENGTH_LONG).show();
 
                 }

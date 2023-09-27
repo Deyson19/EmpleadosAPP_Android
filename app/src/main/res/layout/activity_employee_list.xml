@@ -11,13 +11,15 @@
         android:textColor="@color/black"
         android:shadowColor="@color/colorPrimary"
         android:backgroundTint="#F3BC19"
-        android:text="Crear Registro"
+        android:text="Crear Un Registro"
         android:id="@+id/Crear"
         style="?attr/borderlessButtonStyle"
         />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_employee_list"
         android:layout_width="match_parent"
+        android:outlineSpotShadowColor="@color/colorPrimary"
+        android:outlineAmbientShadowColor="@color/black"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

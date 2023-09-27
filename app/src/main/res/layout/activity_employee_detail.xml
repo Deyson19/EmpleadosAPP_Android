@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="18dp"
-
     android:clickable="true"
     android:focusable="true"
-    android:checkable="true"
+    android:background="#E9B824"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:checkable="true"
         android:orientation="vertical">
 
         <!-- Media -->
@@ -107,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="150dp"
                 android:text="Eliminar"
+                android:background="#F80D0D"
                 style="?attr/borderlessButtonStyle"
                 android:id="@+id/Eliminar"
                 />

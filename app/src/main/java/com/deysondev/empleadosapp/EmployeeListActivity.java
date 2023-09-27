@@ -36,7 +36,7 @@ public class EmployeeListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(EmployeeListActivity.this,CrearEmpleado.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
