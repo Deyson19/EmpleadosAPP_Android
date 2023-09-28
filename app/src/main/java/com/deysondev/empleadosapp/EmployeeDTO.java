@@ -8,6 +8,9 @@ public class EmployeeDTO {
     private String sueldo;
     private String empresa;
 
+    public  EmployeeDTO(){
+
+    }
     public EmployeeDTO(int edad, String nombre, String apellido, String profesion, String sueldo, String empresa) {
         this.edad = edad;
         this.nombre = nombre;

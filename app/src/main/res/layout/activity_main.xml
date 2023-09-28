@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#133546"
+    android:orientation="vertical">
 
     <!-- <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -19,29 +21,41 @@
         android:id="@+id/adView"
         android:layout_width="411dp"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-3940256099942544/6300978111"
         tools:ignore="MissingConstraints">
     </com.google.android.gms.ads.AdView>
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="15dp"
+        android:padding="20dp"
+        android:shadowColor="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="Bienvenido!"
+        android:textAlignment="center"
+        tools:ignore="HardcodedText" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/employeesapp"
+        android:importantForAccessibility="no" />
 
     <Button
         android:id="@+id/moverse"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Moverse"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="437dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginStart="50dp"
+        android:text="Ir al Listado"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:backgroundTint="@color/colorPrimary"
+        tools:ignore="HardcodedText,MissingConstraints" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

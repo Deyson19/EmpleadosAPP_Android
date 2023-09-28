@@ -26,6 +26,8 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_employee_detail);
 
         Button eliminarEmpleado = findViewById(R.id.Eliminar);
+        Button editarEmpleado = findViewById(R.id.Editar);
+
         EmployeeService employeeService = new EmployeeService();
 
         // Obtén el objeto Employee enviado desde la actividad de lista.
@@ -33,7 +35,6 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         eliminarEmpleado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 int id = employee.getId();
                 dialogoEliminar(id);
             }
@@ -53,6 +54,16 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         txtNombre.setText("Nombre: "+employee.getNombre());
         txtSueldo.setText("Sueldo: "+employee.getSueldo());
         txtEdad.setText(String.valueOf("Edad: "+employee.getEdad()));
+
+
+        editarEmpleado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EmployeeDetailActivity.this,EditarEmpleado.class);
+                intent.putExtra("employee",employee);
+                startActivity(intent);
+            }
+        });
     }
     private void eliminar(int id){
         EmployeeService eliminacion = new EmployeeService();

@@ -2,26 +2,22 @@ package com.deysondev.empleadosapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,9 +27,6 @@ import retrofit2.Response;
 public class EmployeeListActivity extends AppCompatActivity {
 
     private EmployeeListAdapter adapter;
-    private Button crearNuevos;
-
-    private  AdView mAdView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,7 +34,7 @@ public class EmployeeListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_list);
 
-        crearNuevos = findViewById(R.id.Crear);
+        Button crearNuevos = findViewById(R.id.Crear);
         crearNuevos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +56,7 @@ public class EmployeeListActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<List<Employee>>() {
             @Override
-            public void onResponse(Call<List<Employee>> call, Response<List<Employee>> response) {
+            public void onResponse(@NonNull Call<List<Employee>> call, Response<List<Employee>> response) {
                 if(response.isSuccessful()){
                     List<Employee> employeeList = response.body();
                     adapter = new EmployeeListAdapter(employeeList, new EmployeeListAdapter.OnItemClickListener() {
@@ -81,7 +74,7 @@ public class EmployeeListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Employee>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Employee>> call, Throwable t) {
                 Toast.makeText(EmployeeListActivity.this, "Error en la solicitud HTTP", Toast.LENGTH_SHORT).show();
 
             }
@@ -93,7 +86,7 @@ public class EmployeeListActivity extends AppCompatActivity {
             }
         });
 
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 

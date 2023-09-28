@@ -15,8 +15,8 @@ public interface EmployeeApiService {
     @POST("CrearEmpleado")
     Call<Void> createEmployee(@Body Employee employee);
 
-    @PUT("ActualizarEmpleado/{id}")
-    Call<Void> updateEmployee(@Path("id") int employeeId, @Body Employee updatedEmployee);
+    @PUT("ActualziarEmpleado/{id}")
+    Call<Void> updateEmployee(@Path("id") int employeeId, @Body EmployeeDTO updatedEmployee);
 
     @DELETE("EliminarEmpleado/{id}")
     Call<Void> deleteEmployee(@Path("id") int employeeId);

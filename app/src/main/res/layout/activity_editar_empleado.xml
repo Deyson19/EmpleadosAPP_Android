@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="#133546"
+    tools:context=".EditarEmpleado">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/employee"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/imagen_empleado"
+        />
+
+    <EditText
+        android:id="@+id/editar_nombreEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        android:hint="nombre empleado">
+    </EditText>
+
+    <EditText
+        android:id="@+id/editar_apellidoEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        android:hint="apellido empleado">
+    </EditText>
+    <EditText
+        android:id="@+id/editar_ProfesionEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        android:hint="profesion empleado">
+    </EditText>
+
+    <EditText
+        android:id="@+id/editar_empresaEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@color/white"
+        android:inputType="text"
+        android:hint="empresa empleado">
+    </EditText>
+
+    <EditText
+        android:id="@+id/editar_edadEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="number"
+        android:textColorHint="@color/white"
+        android:hint="edad empleado">
+    </EditText>
+    <EditText
+        android:id="@+id/editar_sueldoEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:textColorHint="@color/white"
+        android:hint="sueldo empleado">
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardarEdicion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/black"
+            android:shadowColor="@color/colorPrimary"
+            android:backgroundTint="#F3BC19"
+            android:text="@string/enviar_datos" />
+
+    </LinearLayout>
+</LinearLayout>

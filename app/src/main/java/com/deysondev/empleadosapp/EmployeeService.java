@@ -29,7 +29,7 @@ public class EmployeeService {
         return apiService.createEmployee(employee);
     }
 
-    public Call<Void> updateEmployee(int employeeId, Employee updatedEmployee) {
+    public Call<Void> updateEmployee(int employeeId, EmployeeDTO updatedEmployee) {
         return apiService.updateEmployee(employeeId, updatedEmployee);
     }
 
