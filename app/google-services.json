@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "30888670466",
+    "project_id": "empleadosapp-f4411",
+    "storage_bucket": "empleadosapp-f4411.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30888670466:android:c07a73dcfb0e7e235bbe1b",
+        "android_client_info": {
+          "package_name": "com.deysondev.empleadosapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDngwCieJngLRrNasWQBeL_9iUKlHwhSc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

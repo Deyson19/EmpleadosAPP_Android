@@ -1,5 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
+    // Add the Performance Monitoring Gradle plugin
+    id 'com.google.firebase.firebase-perf'
 }
 
 android {
@@ -51,6 +54,11 @@ dependencies {
     implementation 'com.github.GrenderG:Toasty:1.5.2'
     //Admob
     implementation 'com.google.android.gms:play-services-ads:22.4.0'
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:32.3.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation("com.google.firebase:firebase-perf")
 
 
 
