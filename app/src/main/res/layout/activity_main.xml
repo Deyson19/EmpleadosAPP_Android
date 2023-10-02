@@ -22,7 +22,7 @@
         android:layout_width="411dp"
         android:layout_height="50dp"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:adUnitId="ca-app-pub-8870190895937076/6115136225"
         tools:ignore="MissingConstraints">
     </com.google.android.gms.ads.AdView>
 
